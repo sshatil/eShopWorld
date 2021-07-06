@@ -1,4 +1,5 @@
 import { Grid } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { GlobalState } from '../GlobalState';
@@ -35,20 +36,27 @@ const ProductDetails = () => {
     //     <Link to="/cart">Buy Now</Link>
     //   </Grid>
     // </Grid>
-    <Grid container spacing={3}>
-      <Grid item xs={12} sm={6}>
+    <Grid container className="product-details">
+      <Grid item xs={12} sm={6} className="product-details__img">
         <img src={productDetails.images.url} alt="" />
       </Grid>
-      <Grid item xs={12} sm={6}>
-        <div>
+      <Grid item xs={12} sm={6} className="box-details">
+        <div className="box-details__title">
           <h2>{title}</h2>
+          <span>
+            <strong>$ {price}</strong>{' '}
+          </span>
           {/* <h6>{product_id}</h6> */}
         </div>
-        <span>{price}</span>
         <p>{description}</p>
         <p>{content}</p>
-        <p>{sold}</p>
-        <Link to="/cart">Buy Now</Link>
+        <p>Sold {sold}</p>
+        {/* <Link to="/cart">Buy Now</Link> */}
+        <Link to="/cart">
+          <Button variant="contained" color="primary">
+            Buy Now
+          </Button>
+        </Link>
       </Grid>
     </Grid>
   );
