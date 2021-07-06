@@ -1,0 +1,22 @@
+.product-details {
+  // max-width: 1080px;
+  // width: 100%;
+  // // display: flex;
+  // // justify-content: space-around;
+  // // flex-wrap: wrap;
+  // // padding: 50px;
+  // font-size: 150%;
+  img {
+    max-width: 400px;
+    width: 100%;
+    margin: 20px;
+    height: 350px;
+    object-fit: cover;
+    display: block;
+  }
+  .box-details {
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+  }
+}
