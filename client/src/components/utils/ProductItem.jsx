@@ -53,7 +53,7 @@ const ProductItem = ({ product }) => {
           <Link to="/">Buy</Link>
         </Button>
         <Button size="small" color="primary">
-          <Link to={`details/${_id}`}>View</Link>
+          <Link to={`/details/${_id}`}>View</Link>
         </Button>
       </div>
     </Card>

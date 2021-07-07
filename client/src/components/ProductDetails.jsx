@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { GlobalState } from '../GlobalState';
 import '../styles/ProductDetails.scss';
+import ProductItem from './utils/ProductItem';
 
 const ProductDetails = () => {
   const params = useParams();
@@ -20,45 +21,43 @@ const ProductDetails = () => {
   const { title, price, description, content, sold } = productDetails;
   if (productDetails.length === 0) return null;
   return (
-    // <Grid container spacing={3} className="product-details">
-    //   <Grid item xs={6} sm={6}>
-    //     <img src={productDetails.images.url} alt="" />
-    //   </Grid>
-    //   <Grid item xs={6} sm={6} className="box-details">
-    //     <div>
-    //       <h2>{title}</h2>
-    //       {/* <h6>{product_id}</h6> */}
-    //     </div>
-    //     <span>{price}</span>
-    //     <p>{description}</p>
-    //     <p>{content}</p>
-    //     <p>{sold}</p>
-    //     <Link to="/cart">Buy Now</Link>
-    //   </Grid>
-    // </Grid>
-    <Grid container className="product-details">
-      <Grid item xs={12} sm={6} className="product-details__img">
-        <img src={productDetails.images.url} alt="" />
+    <>
+      <Grid container className="product-details">
+        <Grid item xs={12} sm={6} className="product-details__img">
+          <img src={productDetails.images.url} alt="" />
+        </Grid>
+        <Grid item xs={12} sm={6} className="box-details">
+          <div className="box-details__title">
+            <h2>{title}</h2>
+            <span>
+              <strong>$ {price}</strong>{' '}
+            </span>
+            {/* <h6>{product_id}</h6> */}
+          </div>
+          <p>{description}</p>
+          <p>{content}</p>
+          <p>Sold {sold}</p>
+          {/* <Link to="/cart">Buy Now</Link> */}
+          <Link to="/cart">
+            <Button variant="contained" color="primary">
+              Buy Now
+            </Button>
+          </Link>
+        </Grid>
       </Grid>
-      <Grid item xs={12} sm={6} className="box-details">
-        <div className="box-details__title">
-          <h2>{title}</h2>
-          <span>
-            <strong>$ {price}</strong>{' '}
-          </span>
-          {/* <h6>{product_id}</h6> */}
+      <div className="related-products">
+        <div>
+          <h2>Related Products</h2>
+          <div>
+            {products.map((product) =>
+              product.category === productDetails.category ? (
+                <ProductItem key={product._id} product={product} />
+              ) : null
+            )}
+          </div>
         </div>
-        <p>{description}</p>
-        <p>{content}</p>
-        <p>Sold {sold}</p>
-        {/* <Link to="/cart">Buy Now</Link> */}
-        <Link to="/cart">
-          <Button variant="contained" color="primary">
-            Buy Now
-          </Button>
-        </Link>
-      </Grid>
-    </Grid>
+      </div>
+    </>
   );
 };
 
