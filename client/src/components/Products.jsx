@@ -1,4 +1,4 @@
-import { Grid } from '@material-ui/core';
+import { CircularProgress, Grid } from '@material-ui/core';
 import { useContext } from 'react';
 import { GlobalState } from '../GlobalState';
 import '../styles/Products.scss';
@@ -9,15 +9,18 @@ const Products = () => {
   const [products] = state.ProductsAPI.products;
   console.log(products);
   return (
-    <div className="products">
-      <Grid container spacing={3}>
-        {products.map((product) => (
-          <Grid item xs={12} sm={4} md={3} key={product._id}>
-            <ProductItem product={product} />
-          </Grid>
-        ))}
-      </Grid>
-    </div>
+    <>
+      <div className="products">
+        <Grid container spacing={3}>
+          {products.map((product) => (
+            <Grid item xs={12} sm={4} md={3} key={product._id}>
+              <ProductItem product={product} />
+            </Grid>
+          ))}
+        </Grid>
+      </div>
+      {products.length === 0 && <CircularProgress />}
+    </>
   );
 };
 
