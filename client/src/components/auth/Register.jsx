@@ -27,13 +27,36 @@ const Register = () => {
   console.log(user);
   return (
     <div className="login">
+      <h2>Register</h2>
       <form onSubmit={handleRegister}>
-        <input type="text" name="name" placeholder="Your Name" onChange={handleInput} />
-        <input type="email" name="email" placeholder="Email" onChange={handleInput} />
-        <input type="password" name="password" placeholder="Your Password" onChange={handleInput} />
-        <div>
-          <button type="submit">Register</button>
-          <Link to="/login">Login</Link>
+        <input
+          className="login__input"
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          onChange={handleInput}
+        />
+        <input
+          className="login__input"
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleInput}
+        />
+        <input
+          className="login__input"
+          type="password"
+          name="password"
+          placeholder="Your Password"
+          onChange={handleInput}
+        />
+        <div className="login__btn">
+          <button className="login__input" type="submit">
+            Register
+          </button>
+          <Link className="register-link" to="/login">
+            Login
+          </Link>
         </div>
       </form>
     </div>

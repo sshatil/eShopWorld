@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../../styles/Login.scss';
 
 const Login = () => {
   const [user, setUser] = useState({
@@ -26,12 +27,29 @@ const Login = () => {
   console.log(user);
   return (
     <div className="login">
+      <h2>Login</h2>
       <form onSubmit={handleLogin}>
-        <input type="email" name="email" placeholder="Email" onChange={handleInput} />
-        <input type="password" name="password" placeholder="Your Password" onChange={handleInput} />
-        <div>
-          <button type="submit">Login</button>
-          <Link to="/register">Register</Link>
+        <input
+          className="login__input"
+          type="email"
+          name="email"
+          placeholder="Email"
+          onChange={handleInput}
+        />
+        <input
+          className="login__input"
+          type="password"
+          name="password"
+          placeholder="Your Password"
+          onChange={handleInput}
+        />
+        <div className="login__btn">
+          <button className="login__input" type="submit">
+            Login
+          </button>
+          <Link className="register-link" to="/register">
+            Register
+          </Link>
         </div>
       </form>
     </div>
