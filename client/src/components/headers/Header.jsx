@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GlobalState } from '../../GlobalState';
@@ -6,9 +7,15 @@ import '../../styles/Header.scss';
 
 const Header = () => {
   const state = useContext(GlobalState);
-  const [isLoggedIn] = state.userApi.isLoggedIn;
-  const [isAdmin] = state.userApi.isAdmin;
+  const [isLoggedIn, setIsLoggedIn] = state.userApi.isLoggedIn;
+  const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
   console.log(state);
+  const logoutUser = async () => {
+    await axios.get('/user/logout');
+    localStorage.clear();
+    setIsAdmin(false);
+    setIsLoggedIn(false);
+  };
 
   const adminRouter = () => (
     <>
@@ -26,7 +33,9 @@ const Header = () => {
         <Link to="/history">History</Link>
       </li>
       <li>
-        <Link to="/">Logout</Link>
+        <Link to="/" onClick={logoutUser}>
+          Logout
+        </Link>
       </li>
     </>
   );
@@ -41,9 +50,9 @@ const Header = () => {
         <li>
           <Link to="/">{isAdmin ? 'Product' : 'Shop'}</Link>
         </li>
-        {isAdmin && adminRouter}
+        {isAdmin && adminRouter()}
         {isLoggedIn ? (
-          userRouter
+          userRouter()
         ) : (
           <li>
             <Link to="/login">Login</Link>
