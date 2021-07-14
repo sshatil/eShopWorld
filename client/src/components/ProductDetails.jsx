@@ -45,15 +45,26 @@ const ProductDetails = () => {
           </Link>
         </Grid>
       </Grid>
-      <div className="related-products">
+      <div>
         <div>
           <h2>Related Products</h2>
-          <div>
+          {/* <div>
             {products.map((product) =>
               product.category === productDetails.category ? (
                 <ProductItem key={product._id} product={product} />
               ) : null
             )}
+          </div> */}
+          <div className="products">
+            <Grid container spacing={3}>
+              {products.map((product) =>
+                product.category === productDetails.category ? (
+                  <Grid item xs={12} sm={4} md={3} key={product._id}>
+                    <ProductItem product={product} />
+                  </Grid>
+                ) : null
+              )}
+            </Grid>
           </div>
         </div>
       </div>
