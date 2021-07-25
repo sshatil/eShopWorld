@@ -1,11 +1,16 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { GlobalState } from '../../GlobalState';
 import '../../styles/ProductItem.scss';
 
 const ProductItem = ({ product, isAdmin }) => {
-  const { title, description, price, _id } = product;
+  const state = useContext(GlobalState);
+  const { title, description, price, _id, checked } = product;
+  const { addCart } = state.userApi;
   return (
     <>
       <div className="product-item">
+        {isAdmin && <input type="checkbox" checked={checked} />}
         <img src={product.images.url} alt="" />
         <div className="product-item__header">
           <h3>{title}</h3>
@@ -18,29 +23,21 @@ const ProductItem = ({ product, isAdmin }) => {
         <div className="product-item__btn">
           {isAdmin ? (
             <>
-              <button type="button">
-                <Link className="btn" to="/">
-                  Delete
-                </Link>
-              </button>
-              <button type="button">
-                <Link className="btn" to={`/edit_product/${_id}`}>
-                  Edit
-                </Link>
-              </button>
+              <Link className="btn" to="/">
+                Delete
+              </Link>
+              <Link className="btn" to={`/edit_product/${_id}`}>
+                Edit
+              </Link>
             </>
           ) : (
             <>
-              <button type="button">
-                <Link className="btn" to="/">
-                  Buy
-                </Link>
-              </button>
-              <button type="button">
-                <Link className="btn" to={`/details/${_id}`}>
-                  View
-                </Link>
-              </button>
+              <Link className="btn" to="/" onClick={() => addCart(product)}>
+                Buy
+              </Link>
+              <Link className="btn" to={`/details/${_id}`}>
+                View
+              </Link>
             </>
           )}
         </div>

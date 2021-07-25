@@ -12,7 +12,7 @@ const Products = () => {
     <>
       <div className="products">
         {products.map((product) => (
-          <ProductItem product={product} isAdmin={isAdmin} />
+          <ProductItem key={product._id} product={product} isAdmin={isAdmin} />
         ))}
       </div>
       {products.length === 0 && <CircularProgress />}

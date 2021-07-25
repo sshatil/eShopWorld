@@ -9,6 +9,7 @@ const Header = () => {
   const state = useContext(GlobalState);
   const [isLoggedIn, setIsLoggedIn] = state.userApi.isLoggedIn;
   const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
+  const [cart] = state.userApi.cart;
   console.log(state);
   const logoutUser = async () => {
     await axios.get('/user/logout');
@@ -16,7 +17,7 @@ const Header = () => {
     setIsAdmin(false);
     setIsLoggedIn(false);
   };
-
+  console.log(cart);
   const adminRouter = () => (
     <>
       <li>
@@ -65,7 +66,7 @@ const Header = () => {
         ) : (
           <h4>
             <Link to="/cart">
-              Cart <span>0</span>
+              Cart <span>{cart.length}</span>
             </Link>
           </h4>
         )}
