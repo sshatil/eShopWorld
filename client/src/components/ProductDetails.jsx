@@ -46,7 +46,7 @@ const ProductDetails = () => {
         </Grid>
       </Grid>
       <div>
-        <h2>Related Products</h2>
+        <h2 className="related__product">Related Products</h2>
         <div className="products">
           {products.map((product) =>
             product.category === productDetails.category ? (
