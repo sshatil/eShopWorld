@@ -16,7 +16,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/user/register', { ...user });
+      await axios.post('https://eshopworld.herokuapp.com/user/register', { ...user });
 
       localStorage.setItem('firstLogin', true);
       window.location.href = '/';

@@ -21,7 +21,7 @@ const Navbar = () => {
   const [cart] = state.userApi.cart;
   console.log(state);
   const logoutUser = async () => {
-    await axios.get('/user/logout');
+    await axios.get('https://eshopworld.herokuapp.com/user/logout');
     localStorage.clear();
     setIsAdmin(false);
     setIsLoggedIn(false);

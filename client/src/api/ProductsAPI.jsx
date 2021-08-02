@@ -5,7 +5,7 @@ const ProductsAPI = () => {
   const [products, setProduct] = useState([]);
 
   const getProducts = async () => {
-    const res = await axios.get('/api/products');
+    const res = await axios.get('https://eshopworld.herokuapp.com/api/products');
     setProduct(res.data.products);
   };
   useEffect(() => {
