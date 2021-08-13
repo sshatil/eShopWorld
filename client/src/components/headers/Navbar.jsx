@@ -21,7 +21,7 @@ const Navbar = () => {
   const [cart] = state.userApi.cart;
   console.log(state);
   const logoutUser = async () => {
-    await axios.get('https://eshopworld.herokuapp.com/user/logout');
+    await axios.get('/user/logout');
     localStorage.clear();
     setIsAdmin(false);
     setIsLoggedIn(false);
@@ -86,8 +86,8 @@ const Navbar = () => {
           </li>
         ) : (
           <li className="nav-item">
-            <Link to="/sign-up" className="nav-links" onClick={closeMobileMenu}>
-              Sign Up
+            <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+              Login
             </Link>
           </li>
         )}
