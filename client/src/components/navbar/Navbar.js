@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { GlobalState } from "../GlobalState";
 import { CgShoppingCart } from "react-icons/cg";
 import styles from "./Navbar.module.css";
+import { GlobalState } from "../../GlobalState";
 
 const Navbar = () => {
   const value = useContext(GlobalState);
