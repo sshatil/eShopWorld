@@ -6,7 +6,7 @@ import { GlobalState } from "../../GlobalState";
 
 const Navbar = () => {
   const value = useContext(GlobalState);
-  console.log(value);
+  // console.log(value);
   return (
     <nav className={styles.header}>
       <div>
