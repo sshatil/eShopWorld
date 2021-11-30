@@ -1,5 +1,6 @@
 .navbar {
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  /* background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%); */
+  background-color: var(--btn-bg);
   height: 70px;
   display: flex;
   justify-content: center;
@@ -149,9 +150,5 @@
     background: #fff;
     color: #1888ff;
     transition: 250ms;
-  }
-
-  button {
-    display: none;
   }
 }

@@ -1,0 +1,51 @@
+.header {
+  background-image: url(../assets/online-shopping.webp);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: var(--btn-bg);
+    font-size: 40px;
+    padding: 10px;
+    font-style: italic;
+    @media (max-width: 768px) {
+      font-size: 35px;
+    }
+    @media (max-width: 500px) {
+      font-size: 20px;
+    }
+  }
+  &__input {
+    input {
+      width: 100%;
+      padding: 6px;
+      border: none;
+      outline: none;
+      border-radius: 8px;
+    }
+
+    .btn {
+      margin-left: 5px;
+      padding: 0 10px;
+      border: none;
+      border-radius: 8px;
+      color: var(--text-white);
+      background-color: var(--btn-bg);
+    }
+    width: 40vw;
+    display: flex;
+    @media (max-width: 768px) {
+      width: 50vw;
+    }
+    @media (max-width: 500px) {
+      width: 80vw;
+    }
+  }
+}
