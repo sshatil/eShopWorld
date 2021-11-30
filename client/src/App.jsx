@@ -10,7 +10,7 @@ import NotFound from "./components/utils/NotFound";
 
 function App() {
   const data = useContext(GlobalState);
-  console.log(data);
+  // console.log(data);
   return (
     <Router>
       <Navbar />
