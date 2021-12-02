@@ -4,7 +4,10 @@
   border-radius: 10px;
   overflow: hidden;
   &__img {
-    height: 62%;
+    height: 65%;
+    img {
+      height: 100%;
+    }
   }
   .product__details {
     padding: 10px;

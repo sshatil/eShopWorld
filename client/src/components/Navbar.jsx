@@ -18,7 +18,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        logo
+        eShopWorld
       </Link>
       <div className="menu-icon" onClick={handleClick}>
         <i style={{ color: "white" }}>
