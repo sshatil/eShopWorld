@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 // import Button from "../Button/Button";
 import "../styles/Navbar.css";
 import { AiOutlineBars } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { GlobalState } from "../GlobalState";
 
 const Navbar = () => {
+  const state = useContext(GlobalState);
+  const [isLogged, setIsLogged] = state.userApi.isLogged;
+  const [isAdmin, setIsAdmin] = state.userApi.isLogged;
   const [click, setClick] = useState(false);
 
   const handleClick = () => {

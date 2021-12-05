@@ -10,6 +10,7 @@ import NotFound from "./components/utils/NotFound";
 import ProductDetails from "./components/ProductDetails";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
+import Cart from "./components/Cart";
 
 function App() {
   const data = useContext(GlobalState);
@@ -22,6 +23,7 @@ function App() {
         <Route path="/details/:id" exact component={ProductDetails} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
+        <Route path="/cart" exact component={Cart} />
         <Route path="*" exact component={NotFound} />
       </Switch>
     </Router>
