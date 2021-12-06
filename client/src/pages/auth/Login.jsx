@@ -31,6 +31,7 @@ const Login = () => {
         email: "",
         password: "",
       });
+      window.location.href = "/";
     } catch (error) {
       // setAlert({ show: true, msg: error.response.data.msg });
       handleAlert(true, error.response.data.msg, "error");

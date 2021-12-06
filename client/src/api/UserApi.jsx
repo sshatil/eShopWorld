@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 const UserApi = (token) => {
   const [isLogged, setIsLogged] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+
   useEffect(() => {
     if (token) {
       const getUser = async () => {
@@ -13,7 +14,6 @@ const UserApi = (token) => {
           });
           setIsLogged(true);
           res.data.role === 1 ? setIsAdmin(true) : setIsAdmin(false);
-          console.log(res);
         } catch (error) {
           console.log(error.response.data.msg);
         }

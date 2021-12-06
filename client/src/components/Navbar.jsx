@@ -10,7 +10,9 @@ import { GlobalState } from "../GlobalState";
 const Navbar = () => {
   const state = useContext(GlobalState);
   const [isLogged, setIsLogged] = state.userApi.isLogged;
-  const [isAdmin, setIsAdmin] = state.userApi.isLogged;
+  const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
+
+  console.log(state);
   const [click, setClick] = useState(false);
 
   const handleClick = () => {
@@ -19,10 +21,11 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setClick(false);
   };
+
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        eShopWorld
+        {isAdmin ? "Admin" : "eShopWorld"}
       </Link>
       <div className="menu-icon" onClick={handleClick}>
         <i style={{ color: "white" }}>
@@ -35,26 +38,71 @@ const Navbar = () => {
             Home
           </Link>
         </li>
-        <li className="nav-item">
-          <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
-            About
-          </Link>
-        </li>
-        <li className="nav-item">
+        {isAdmin && (
+          <>
+            <li className="nav-item">
+              <Link
+                to="/create-product"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Create Product
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                to="/create-product"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                Categories
+              </Link>
+            </li>
+          </>
+        )}
+        {isLogged ? (
+          <>
+            <li className="nav-item">
+              <Link
+                to="/history"
+                className="nav-links"
+                onClick={closeMobileMenu}
+              >
+                History
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+                Logout
+              </Link>
+            </li>
+          </>
+        ) : (
+          <li className="nav-item">
+            <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
+              Login
+            </Link>
+          </li>
+        )}
+        {/* <li className="nav-item">
           <Link to="/login" className="nav-links" onClick={closeMobileMenu}>
             Login
           </Link>
-        </li>
+        </li> */}
 
-        <li className="nav-item">
-          <Link to="/cart" className="nav-links" onClick={closeMobileMenu}>
-            <p className="nav-cart">
-              <MdOutlineAddShoppingCart className="cart__logo" /> <span>0</span>
-            </p>
-          </Link>
-        </li>
+        {isAdmin ? (
+          ""
+        ) : (
+          <li className="nav-item">
+            <Link to="/cart" className="nav-links" onClick={closeMobileMenu}>
+              <p className="nav-cart">
+                <MdOutlineAddShoppingCart className="cart__logo" />{" "}
+                <span>0</span>
+              </p>
+            </Link>
+          </li>
+        )}
       </ul>
-      {/* <Button /> */}
     </nav>
   );
 };
