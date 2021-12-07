@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { GlobalState } from "../../GlobalState";
 import "../../styles/ProductItem.scss";
 
 const ProductItem = ({ product }) => {
+  const state = useContext(GlobalState);
+  const addToCart = state.userApi.addToCart;
   const { title, product_id, price } = product;
   return (
     <div className="product__item">
@@ -15,8 +18,8 @@ const ProductItem = ({ product }) => {
           <p className="product__id">id: {product_id}</p>
         </div>
         <h5>Price: $ {price}</h5>
-        <div className="btn">
-          <Link to="/cart">
+        <div className="btn" onClick={() => addToCart(product)}>
+          <Link to="#!">
             <button>Add to Cart</button>
           </Link>
           <Link to={`/details/${product._id}`}>

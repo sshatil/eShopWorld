@@ -6,11 +6,13 @@ import { AiOutlineBars } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { GlobalState } from "../GlobalState";
+import axios from "axios";
 
 const Navbar = () => {
   const state = useContext(GlobalState);
   const [isLogged, setIsLogged] = state.userApi.isLogged;
   const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
+  const [cart] = state.userApi.cart;
 
   console.log(state);
   const [click, setClick] = useState(false);
@@ -21,7 +23,11 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setClick(false);
   };
-
+  const handleLogout = async () => {
+    await axios.get("/user/logout");
+    localStorage.clear();
+    window.location.href = "/";
+  };
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
@@ -72,7 +78,11 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/" className="nav-links" onClick={closeMobileMenu}>
+              <Link
+                to="/"
+                className="nav-links"
+                onClick={(closeMobileMenu, handleLogout)}
+              >
                 Logout
               </Link>
             </li>
@@ -97,7 +107,7 @@ const Navbar = () => {
             <Link to="/cart" className="nav-links" onClick={closeMobileMenu}>
               <p className="nav-cart">
                 <MdOutlineAddShoppingCart className="cart__logo" />{" "}
-                <span>0</span>
+                <span>{cart.length}</span>
               </p>
             </Link>
           </li>
