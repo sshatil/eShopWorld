@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isAdmin, setIsAdmin] = state.userApi.isAdmin;
   const [cart] = state.userApi.cart;
 
-  console.log(state);
+  // console.log(state);
   const [click, setClick] = useState(false);
 
   const handleClick = () => {
@@ -57,7 +57,7 @@ const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link
-                to="/create-product"
+                to="/category"
                 className="nav-links"
                 onClick={closeMobileMenu}
               >

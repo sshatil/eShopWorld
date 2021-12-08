@@ -11,10 +11,12 @@ import ProductDetails from "./components/ProductDetails";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Cart from "./components/Cart";
+import Categories from "./components/Categories";
 
 function App() {
-  const data = useContext(GlobalState);
-  // console.log(data);
+  const state = useContext(GlobalState);
+  const [isLogged] = state.userApi.isLogged;
+  const [isAdmin] = state.userApi.isLogged;
   return (
     <Router>
       <Navbar />
@@ -23,6 +25,11 @@ function App() {
         <Route path="/details/:id" exact component={ProductDetails} />
         <Route path="/login" exact component={Login} />
         <Route path="/register" exact component={Register} />
+        <Route
+          path="/category"
+          exact
+          component={isAdmin ? Categories : NotFound}
+        />
         <Route path="/cart" exact component={Cart} />
         <Route path="*" exact component={NotFound} />
       </Switch>
