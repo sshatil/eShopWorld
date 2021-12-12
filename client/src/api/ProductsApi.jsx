@@ -6,14 +6,14 @@ const ProductsApi = () => {
   const [category, setCategory] = useState("");
   const [sort, setSort] = useState("");
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState("");
+  const [page, setPage] = useState(1);
   const [result, setResult] = useState(0);
 
   useEffect(() => {
     const getProducts = async () => {
       const res = await axios.get(
         `/api/products?limit=${
-          page * 9
+          page * 8
         }&${category}&${sort}&title[regex]=${search}`
       );
       setProducts(res.data.products);
