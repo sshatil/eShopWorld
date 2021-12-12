@@ -1,0 +1,37 @@
+.filter__menu {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--text-white);
+  .filter {
+    padding: 7px 18px;
+    background-color: var(--btn-bg);
+    border-radius: 14px;
+  }
+  select {
+    color: var(--text-white);
+    padding: 5px;
+    font-size: 16px;
+    outline: none;
+    background-color: var(--btn-bg);
+    border: none;
+    cursor: pointer;
+  }
+  span {
+    font-size: 18px;
+    font-weight: 500;
+    font-style: oblique;
+  }
+  @media (max-width: 600px) {
+    select {
+      padding: 1px;
+      font-size: 10px;
+    }
+    span {
+      font-size: 10px;
+      font-weight: 500;
+    }
+  }
+}

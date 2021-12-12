@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { GlobalState } from "../GlobalState";
+import "../styles/Filter.scss";
 
 function Filter() {
   const state = useContext(GlobalState);
@@ -15,8 +16,8 @@ function Filter() {
   };
 
   return (
-    <div className="filter_menu">
-      <div className="row">
+    <div className="filter__menu">
+      <div className="category filter">
         <span>Filters: </span>
         <select name="category" value={category} onChange={handleCategory}>
           <option value="">All Products</option>
@@ -28,14 +29,14 @@ function Filter() {
         </select>
       </div>
 
-      <input
+      {/* <input
         type="text"
         value={search}
         placeholder="Enter your search!"
         onChange={(e) => setSearch(e.target.value.toLowerCase())}
-      />
+      /> */}
 
-      <div className="row sort">
+      <div className="sort filter">
         <span>Sort By: </span>
         <select value={sort} onChange={(e) => setSort(e.target.value)}>
           <option value="">Newest</option>
