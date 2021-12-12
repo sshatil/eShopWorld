@@ -12,6 +12,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Cart from "./components/Cart";
 import Categories from "./components/Categories";
+import CreateProduct from "./components/CreateProduct";
 
 function App() {
   const state = useContext(GlobalState);
@@ -29,6 +30,11 @@ function App() {
           path="/category"
           exact
           component={isAdmin ? Categories : NotFound}
+        />
+        <Route
+          path="/create-product"
+          exact
+          component={isAdmin ? CreateProduct : NotFound}
         />
         <Route path="/cart" exact component={Cart} />
         <Route path="*" exact component={NotFound} />

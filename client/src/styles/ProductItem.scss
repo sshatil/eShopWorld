@@ -3,14 +3,21 @@
   margin: 5%;
   border-radius: 10px;
   overflow: hidden;
+  height: 370px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  // align-items: center;
   &__img {
-    height: 65%;
+    height: 70%;
     img {
       height: 100%;
+      width: 100%;
     }
   }
   .product__details {
     padding: 10px;
+    // height: 30vh;`
   }
   .product__header {
     display: flex;
