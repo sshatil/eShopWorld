@@ -13,6 +13,7 @@ import Register from "./pages/auth/Register";
 import Cart from "./components/Cart";
 import Categories from "./components/Categories";
 import CreateProduct from "./components/CreateProduct";
+import Footer from "./components/utils/Footer";
 
 function App() {
   const state = useContext(GlobalState);
@@ -39,6 +40,7 @@ function App() {
         <Route path="/cart" exact component={Cart} />
         <Route path="*" exact component={NotFound} />
       </Switch>
+      <Footer />
     </Router>
   );
 }
