@@ -18,8 +18,8 @@ const ProductItem = ({ product }) => {
           <p className="product__id">id: {product_id}</p>
         </div>
         <h5>Price: $ {price}</h5>
-        <div className="btn" onClick={() => addToCart(product)}>
-          <Link to="#!">
+        <div className="btn">
+          <Link to="#!" onClick={() => addToCart(product)}>
             <button>Add to Cart</button>
           </Link>
           <Link to={`/details/${product._id}`}>
