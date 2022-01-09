@@ -64,7 +64,7 @@ const Cart = () => {
     }
   };
   if (cart.length === 0) {
-    return <h2>Cart is empty</h2>;
+    return <h2 className="empty__cart">Cart is empty</h2>;
   }
   return (
     <div className="product__detail">
