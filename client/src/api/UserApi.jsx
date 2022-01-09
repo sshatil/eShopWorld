@@ -26,6 +26,7 @@ const UserApi = (token) => {
   }, [token]);
   const addToCart = async (product) => {
     if (!isLogged) return alert("You must be logged in first");
+    // if (!isLogged) return <Alert />;
     const check = cart.every((item) => item.id === product.id);
     if (check) {
       setCart([...cart, { ...product, quantity: 1 }]);
