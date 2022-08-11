@@ -20,9 +20,7 @@ const ProductItem = ({ product }) => {
       </div>
       <h5 className="product__price">Price: $ {price}</h5>
       <div className="btn">
-        <Link to="#!" onClick={() => addToCart(product)}>
-          <button>Add to Cart</button>
-        </Link>
+        <button onClick={() => addToCart(product)}>Add to Cart</button>
         <Link to={`/details/${product._id}`}>
           <button>View Details</button>
         </Link>

@@ -10,6 +10,8 @@ const ProductDetails = () => {
   const state = useContext(GlobalState);
   const [products] = state.productsApi.products;
   const [details, setDetails] = useState([]);
+
+  const addToCart = state.userApi.addToCart;
   useEffect(() => {
     products.forEach((product) => {
       if (product._id === id) setDetails(product);
@@ -35,9 +37,11 @@ const ProductDetails = () => {
           <p>Content: {content}</p>
           <p>Price: $ {price}</p>
           <p>{description}</p>
-          <Link to="/cart">
-            <button className="add__btn">Add To Cart</button>
-          </Link>
+          {/* <Link to="/cart"> */}
+          <button className="add__btn" onClick={() => addToCart(details)}>
+            Add To Cart
+          </button>
+          {/* </Link> */}
         </div>
       </div>
       <div>
